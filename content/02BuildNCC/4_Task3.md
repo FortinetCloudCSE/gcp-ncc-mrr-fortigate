@@ -9,7 +9,7 @@ weight: 3
 
 1. Log into FortiGate 1 using ``` ssh admin@<fortigate public ip> ``` password will be ```Fortinet1234$```
 
-1. Copy the below configuration and paste it into the CLI
+2. Copy the below configuration and paste it into the CLI
 
 {{% notice warning %}} Ensure that the router-id used in the fortigate matches the IP address for port2.  This is usually .2, but is dynamically assigned by GCP {{% /notice %}}
 
@@ -57,7 +57,7 @@ weight: 3
 
    ```
 
-1. Confirm that the BGP peers have established by typing ``` get router info bgp summary ``` It should look similar to below:
+3. Confirm that the BGP peers have established by typing ``` get router info bgp summary ``` It should look similar to below:
 
 
    ```sh
@@ -76,7 +76,7 @@ weight: 3
 
    ```
 
-1. Look at received-routes using the commang ``` get router info bgp neighbor <neighbor ip> received-routes ``` You should see that we have recieved the CIDR block for the NCC Subnets in both us-central1 and us-east1
+4. Look at received-routes using the commang ``` get router info bgp neighbor <neighbor ip> received-routes ``` You should see that we have recieved the CIDR block for the NCC Subnets in both us-central1 and us-east1
 
    ```sh
 
@@ -93,7 +93,7 @@ weight: 3
 
    ```
 
-1. Confirm that the remote route is installed into the route table in the CLI with the command ``` get router info routing-table all ``` 
+5. Confirm that the remote route is installed into the route table in the CLI with the command ``` get router info routing-table all ``` 
 
    ```sh
 
@@ -117,7 +117,7 @@ weight: 3
 
    ```
 
-1. **Repeat steps 1-5** for **FortiGate 2**
+6. **Repeat steps 1-5** for **FortiGate 2**
 
    FortiGate 2 (US East) BGP Configuration:
 
@@ -163,7 +163,7 @@ weight: 3
 
    ```
 
-1. Confirm BGP sessions in GCP by navigating to **Cloud Router** You should see two cloud routers and 4 BGP sessions (all green).
+7. Confirm BGP sessions in GCP by navigating to **Cloud Router** You should see two cloud routers and 4 BGP sessions (all green).
 
 ![GCP BGP](gcp_cr_bgp.png)
 

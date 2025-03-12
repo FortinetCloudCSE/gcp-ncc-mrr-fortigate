@@ -1,23 +1,229 @@
 ---
-title: "Manual Hugo Build"
-linkTitle: "Legacy Hugo Build"
+title: "FortiGate BGP over IPSec"
+linkTitle: "FortiGate Overlay"
 chapter: false
-weight: 50
+weight: 2
 ---
 
-### Hugo Build
+## Configure IPSec Tunnels and BGP on FortiGate
 
-When you're satisfied with Hugo view of your content in Hugo virtual server, issue a Hugo 'build' in the container CLI
+In order to save time during this lab, we will use SSH to access FortiGates and copy/paste in CLI commands
 
-```shell
-    hugo --minify --cleanDestinationDir
-```
-        
-   - This command "builds" your Hugo site into the container's **_/public_** folder.  We used a docker disk mount to map this folder back to your local **_/docs_** folder, so the Hugo website will automatically be copied back into your local repo
-   - flag '--cleanDestinationDir' tells hugo to re-write the entire output directory with its build, so it will clear out template files/anything else that may be in there
-   - You can now exit the container with **ctrl + cd**, or command: **'exit'**
-   - When you exit the container, any files stored or changes you made to the container will be lost and cannot be recovered
-     - **_Remember_** we edited the /content folder on our local OS, so those changes were not made to the container and will not be lost
-     - Further, the disk mount from local's **_/docs_** to Container's **_public_** AUTOMATICALLY writes the hugo build to your local OS, so those changes will not be lost
-     - If you need to continue editing, just run a new container from your built image, and run hugo's webserver.  Everything is linked properly so it should just work
-   
+{{% notice warning %}} You will need to use your notepad to replace the remote-gw values in the below CLI Templates with values from your environment! {{% /notice %}}
+
+1. Log into the **remote FortiGate** using ``` ssh admin@<fortigate public ip> ``` password will be ```Fortinet1234$```
+      
+  - Copy the below configurations and modify the values in "<>" to match your environment
+
+    ```sh
+
+    config vpn ipsec phase1-interface
+        edit FGT-1
+            set interface port1
+            set ike-version 2
+            set peertype any
+            set net-device disable
+            set proposal aes256-sha384
+            set dhgrp 5
+            set remote-gw <fgt1-public-ip>
+            set psksecret Fortinet1234$
+        next
+        edit FGT-2
+            set interface port1
+            set ike-version 2
+            set peertype any
+            set net-device disable
+            set proposal aes256-sha384
+            set dhgrp 5
+            set remote-gw <fgt2-public-ip>
+            set psksecret Fortinet1234$
+        next
+    end
+
+    config vpn ipsec phase2-interface
+        edit FGT-1
+            set phase1name FGT-1
+            set proposal aes128-sha1 aes256-sha1 aes128-sha256 aes256-sha256 aes128gcm aes256gcm chacha20poly1305
+        next
+        edit FGT-2
+            set phase1name FGT-2
+            set proposal aes128-sha1 aes256-sha1 aes128-sha256 aes256-sha256 aes128gcm aes256gcm chacha20poly1305
+        next
+    end
+
+    config system interface
+        edit FGT-1
+            set vdom root
+            set ip 10.17.1.1 255.255.255.255
+            set type tunnel
+            set remote-ip 10.17.1.2 255.255.255.255
+            set interface port1
+        next
+        edit FGT-2
+            set vdom root
+            set ip 10.17.2.1 255.255.255.255
+            set type tunnel
+            set remote-ip 10.17.2.2 255.255.255.255
+            set interface port1
+        next
+    end
+
+    config firewall policy
+        edit 0
+            set name FGT1-out
+            set srcintf port2
+            set dstintf FGT-1
+            set action accept
+            set srcaddr all
+            set dstaddr all
+            set schedule always
+            set service HTTP
+        next
+        edit 0
+            set name FGT2-out
+            set srcintf port2
+            set dstintf FGT-2
+            set action accept
+            set srcaddr all
+            set dstaddr all
+            set schedule always
+            set service HTTP
+        next
+    end
+
+
+    config router bgp
+        set as 65200
+        config neighbor
+            edit 10.17.1.2
+                set remote-as 65200
+            next
+            edit 10.17.2.2
+                set remote-as 65200
+            next
+        end
+        config network
+            edit 1
+                set prefix 192.168.100.0 255.255.255.0
+            next
+        end
+
+    ```
+
+2. Log into **FortiGate 1** using ``` ssh admin@<fortigate public ip> ``` password will be ```Fortinet1234$```
+
+  - Copy the below configurations and modify the values in "<>" to match your environment
+
+  ```sh
+
+  config vpn ipsec phase1-interface
+      edit RMT-FGT
+          set interface port1
+          set ike-version 2
+          set peertype any
+          set net-device disable
+          set proposal aes256-sha384
+          set dhgrp 5
+          set remote-gw <remote-fgt-public-ip>
+          set psksecret Fortinet1234$
+      next
+  end
+
+  config vpn ipsec phase2-interface
+      edit RMT-FGT
+          set phase1name RMT-FGT
+          set proposal aes128-sha1 aes256-sha1 aes128-sha256 aes256-sha256 aes128gcm aes256gcm chacha20poly1305
+      next
+  end
+
+  config system interface
+      edit RMT-FGT
+          set vdom root
+          set ip 10.17.1.2 255.255.255.255
+          set type tunnel
+          set remote-ip 10.17.1.1 255.255.255.255
+          set interface port1
+      next
+  end
+
+  config firewall policy
+      edit 0
+          set name RMT-FGT-out
+          set srcintf RMT-FGT
+          set dstintf port2
+          set action accept
+          set srcaddr all
+          set dstaddr all
+          set schedule always
+          set service HTTP
+      next
+  end
+
+  config router bgp
+      config neighbor
+          edit 10.17.1.1
+              set remote-as 65200
+          next
+  end
+
+  ```
+
+3. Log into **FortiGate 2** using ``` ssh admin@<fortigate public ip> ``` password will be ```Fortinet1234$```
+
+  - Copy the below configurations and modify the values in "<>" to match your environment
+
+  ```sh
+
+  config vpn ipsec phase1-interface
+      edit RMT-FGT
+          set interface port1
+          set ike-version 2
+          set peertype any
+          set net-device disable
+          set proposal aes256-sha384
+          set dhgrp 5
+          set remote-gw 34.16.55.175
+          set psksecret Fortinet1234$
+      next
+  end
+
+  config vpn ipsec phase2-interface
+      edit RMT-FGT
+          set phase1name RMT-FGT
+          set proposal aes128-sha1 aes256-sha1 aes128-sha256 aes256-sha256 aes128gcm aes256gcm chacha20poly1305
+      next
+  end
+
+  config system interface
+      edit RMT-FGT
+          set vdom root
+          set ip 10.17.2.2 255.255.255.255
+          set type tunnel
+          set remote-ip 10.17.2.1 255.255.255.255
+          set interface port1
+      next
+  end
+
+  config firewall policy
+      edit 0
+          set name RMT-FGT-out
+          set srcintf RMT-FGT
+          set dstintf port2
+          set action accept
+          set srcaddr all
+          set dstaddr all
+          set schedule always
+          set service HTTP
+      next
+  end
+
+  config router bgp
+      config neighbor
+          edit 10.17.2.1
+              set remote-as 65200
+          next
+  end
+
+  ```
+
+### Proceed to the next section
