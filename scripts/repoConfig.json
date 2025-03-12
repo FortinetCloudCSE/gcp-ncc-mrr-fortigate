@@ -1,9 +1,9 @@
 {
-  "repoName":"UserRepo",
-  "author":"Jeff Kopko",
-  "workshopTitle":"Hugo for Fortinet TECWorkshops",
+  "repoName":"gcp-ncc-mrr-fortigate",
+  "author":"Derrick Gooch",
+  "workshopTitle":"GCP NCC with FortiGate NVA",
   "themeVariant":"Workshop",
-  "logoBannerText":"FortiHugo",
+  "logoBannerText":"GCP NCC Advanced Routing",
   "logoBannerSubText":"",
   "errorLevel":"warning",
   "googleServicesID":"G-5RZBH288ST",
@@ -16,22 +16,16 @@
     "weight":10
   },
   {
-    "text": "Fortinet Standard Workshop Guide",
-    "URL": "https://fortinetcloudcse.github.io/UserRepo",
+    "text": "Fortinet Cloud Solutions GCP Documentation Home Page",
+    "URL": "https://docs.fortinet.com/cloud-solutions/gc",
     "icon": "fa-tools",
     "weight":20
   },
   {
-    "text": "Fortinet Standard Workshop Template Repo",
+    "text": "GCP Network Connectivity Center Documentation",
     "URL": "https://github.com/FortinetCloudCSE/UserRepo",
     "icon": "fa-tools",
     "weight":30
-  },
-  {
-    "text": "Fortinet Hugo reLearn theme - Guide",
-    "URL": "https://mcshelby.github.io/hugo-theme-relearn/index.html",
-    "icon": "fa-tools",
-    "weight":40
   }
   ]
 }
