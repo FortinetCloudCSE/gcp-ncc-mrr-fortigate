@@ -16,6 +16,10 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
   - Copy the below configurations and modify the values in "<>" to match your environment
 
     ```sh
+    
+    config system settings
+        set bfd enable
+    end
 
     config vpn ipsec phase1-interface
         edit FGT-1
@@ -97,9 +101,15 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
         config neighbor
             edit 10.17.1.2
                 set remote-as 65200
+                set next-hop-self enable
+                set soft-reconfiguration enable
+                set bfd enable
             next
             edit 10.17.2.2
                 set remote-as 65200
+                set next-hop-self enable
+                set soft-reconfiguration enable
+                set bfd enable
             next
         end
         config network
@@ -115,7 +125,9 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
   - Copy the below configurations and modify the values in "<>" to match your environment
 
   ```sh
-
+  config system settings
+        set bfd enable
+    end
   config vpn ipsec phase1-interface
       edit RMT-FGT
           set interface port1
@@ -163,6 +175,9 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
       config neighbor
           edit 10.17.1.1
               set remote-as 65200
+              set next-hop-self enable
+              set soft-reconfiguration enable
+              set bfd enable
           next
   end
 
@@ -173,6 +188,10 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
   - Copy the below configurations and modify the values in "<>" to match your environment
 
   ```sh
+
+  config system settings
+        set bfd enable
+    end
 
   config vpn ipsec phase1-interface
       edit RMT-FGT
@@ -221,6 +240,9 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
       config neighbor
           edit 10.17.2.1
               set remote-as 65200
+              set next-hop-self enable
+              set soft-reconfiguration enable
+              set bfd enable
           next
   end
 

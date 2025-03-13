@@ -167,4 +167,4 @@ weight: 3
 
 ![GCP BGP](gcp_cr_bgp.png)
 
-### This chapter is complete!  Congratulations.  You can move to the next Chapter.
+### This chapter is complete!  Congratulations.  You can move to the next Chapter
