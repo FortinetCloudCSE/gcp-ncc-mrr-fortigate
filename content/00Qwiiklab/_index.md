@@ -4,7 +4,7 @@ linkTitle: "Qwiklab (start here)"
 weight: 5
 ---
 
-## Navigate to Fortinet Qwiklabs
+## ***Navigate to Qwiklab - estimated duration 5 min***
 
 This lab will use [Qwiklabs](https://fortinet.qwiklabs.com) to build all of the required infrastructure.
 

@@ -5,7 +5,7 @@ weight: 10
 #archetype: "chapter"
 ---
 
-## ***Building your Environment(10 min)***
+## ***Building your Environment - estimated duration 10 min***
 
 ### Prereqs
 
