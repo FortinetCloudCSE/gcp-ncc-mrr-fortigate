@@ -5,7 +5,7 @@ weight: 10
 #archetype: "chapter"
 ---
 
-## ***Building your Environment(5 min)***
+## ***Building your Environment(10 min)***
 
 ### Prereqs
 
@@ -23,9 +23,9 @@ Once you have clicked the Lab icon on your Dashboard, you should see a screen li
 
 You should now see a **Start Lab** button with a timer.  **When you are ready** click on this button to start the lab.
 
-{{% notice warning %}} Once you click the button, the timer will start counting down.  Be sure you have alotted enough time to complet the work.  At the end of the timer, the lab will be erased and you must begin again. {{% /notice %}}
+{{% notice warning %}} Once you click the button, the timer will start counting down.  Be sure you have alotted enough time to complete the work.  At the end of the timer, the lab will be erased and you must begin again. {{% /notice %}}
 
 ![Start Lab](start_lab.png)
 
-Once you click on the Start lab button, you will see that qwiklabs is provisioning the required resources.  Wait for this to finish and proceed to the next step.
+Once you click on the Start lab button, you will see that qwiklabs is provisioning the required resources.  Wait for this to finish and then proceed to the next step.
 
