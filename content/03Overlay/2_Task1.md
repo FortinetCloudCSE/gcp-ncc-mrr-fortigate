@@ -117,6 +117,7 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
                 set prefix 192.168.100.0 255.255.255.0
             next
         end
+    end
 
     ```
 
@@ -179,6 +180,7 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
               set soft-reconfiguration enable
               set bfd enable
           next
+      end
   end
 
   ```
@@ -201,7 +203,7 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
           set net-device disable
           set proposal aes256-sha384
           set dhgrp 5
-          set remote-gw 34.16.55.175
+          set remote-gw <remote-fgt-public-ip>
           set psksecret Fortinet1234$
       next
   end
@@ -244,6 +246,7 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
               set soft-reconfiguration enable
               set bfd enable
           next
+      end   
   end
 
   ```
