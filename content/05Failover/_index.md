@@ -2,7 +2,7 @@
 title: "Ch 4 - Failover Test "
 chapter: false
 linkTitle: "Ch 4: Test Failover"
-weight: 40
+weight: 50
 ---
 
 ### ***Disable IPSec to test failover - estimated duration 10 min***

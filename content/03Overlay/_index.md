@@ -1,5 +1,5 @@
 ---
-title: "Ch 3 - Build FortiGate IPSec Overlay "
+title: "Ch 4 - Build FortiGate IPSec Overlay "
 chapter: false
 linkTitle: "Ch 3: Build IPSec"
 weight: 30
