@@ -21,7 +21,7 @@ Navigate to the original NCC project
 
     ![peer accept](peer_accept.png)
 
-1. Confirm that the spoke becomes active
+1. Confirm that the spoke becomes active.
 
     ![peer spoke active](peer_spoke_active.png)
 
