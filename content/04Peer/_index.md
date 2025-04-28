@@ -1,7 +1,7 @@
 ---
-title: "Ch 3 - Build VPC Peering "
+title: "Ch 3 - Build VPC NCC SPOKE "
 chapter: false
-linkTitle: "Ch 4: Build VPC Peering"
+linkTitle: "Ch 4: Build VPC NCC SPOKE"
 weight: 40
 ---
 

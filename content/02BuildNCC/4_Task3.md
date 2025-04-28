@@ -7,7 +7,13 @@ weight: 3
 
 ## Configure FortiGates
 
-1. Log into FortiGate 1 using ``` ssh admin@<fortigate public ip> ``` password will be ```Fortinet1234$```
+1. Log into FortiGate 1 CLI:
+
+- If you have a favorite ssh application like putty (windows) or terminal (mac), ssh using ``` ssh admin@<fortigate public ip> ``` password will be ```Fortinet1234$```
+- If not, go to the GCP Console and open a Cloud Shell terminal and issue the ssh command fromt there.
+
+![SSH Shell](ssh_shell.png)
+
 
 2. Copy the below configuration and paste it into the CLI
 
@@ -41,12 +47,14 @@ weight: 3
       set router-id 10.15.0.2
       config neighbor
          edit 10.15.0.252
+               set capability-default-originate enable
                set ebgp-enforce-multihop enable
                set soft-reconfiguration enable
                set remote-as 65100
                set route-map-in nexthop1
          next
          edit 10.15.0.253
+               set capability-default-originate enable
                set ebgp-enforce-multihop enable
                set soft-reconfiguration enable
                set remote-as 65100
@@ -147,12 +155,14 @@ weight: 3
       set router-id 10.16.0.2
       config neighbor
          edit 10.16.0.252
+               set capability-default-originate enable
                set ebgp-enforce-multihop enable
                set soft-reconfiguration enable
                set remote-as 65100
                set route-map-in nexthop1
          next
          edit 10.16.0.253
+               set capability-default-originate enable
                set ebgp-enforce-multihop enable
                set soft-reconfiguration enable
                set remote-as 65100

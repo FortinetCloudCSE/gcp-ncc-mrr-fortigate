@@ -27,6 +27,7 @@ weight: 1
      - for VPC, we will choose **routelab-ncc-vpc-random**
      - Click on **ADD INSTANCE**
      - In the drop down, choose the FortiGate.  It will be named **routelabe-fgt1-random**
+     - Under Filter actions, click the checkbox to **Include import all IPv4 ranges from hub to spoke**
      - Click **Done**
 
      ![New Spoke](new_spoke.png)

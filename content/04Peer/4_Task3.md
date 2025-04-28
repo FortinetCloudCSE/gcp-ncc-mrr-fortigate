@@ -1,40 +1,49 @@
 ---
-title: "Task 3 - Check Routes"
-linkTitle: "VPC Routes"
+title: "Task 3 - Verify Routing"
+linkTitle: "Verify Routes"
 chapter: false
 weight: 2
 ---
 
 ## Check NCC VPC Routing Table
 
-While still on the VPC network details screen for the NCC VPC, let's check on routing.
+1. Now that we have the spoke configured, we need to go back to the Application project and delete the default route which is configuredfor the peer-vpc This route will take precedence over the default being advertised by FortiGate.
+    - Navigate to VPC Network > Routes > Route Management
+    - select the box next to the default route assosicated with the peer network.
+    - Click **Delete**
 
-1. Click on the **ROUTES** tab and select the **us-central1 (Iowa)** region
-    - Click **View**
-    - Verify that the **10.18.0.0/24** and **10.19.0.0/24** routes are present and the Next hop is the Peering connection that you just created.
-    ![peer routes](peer-routes.png)
+1. Verify routing in the peer vpc.
+    - Click on the Effective routes tab and chose the peer vpc for region **us-central1** and click **view**
+    - Verify that we see the route from the Remote FortiGate as well as the default pointing to our NCC vpc.
 
-1. Navigate to the Application project and VPC.
-    - click on the **peer** vpc under "VPC networks"
-    - click on the **ROUTES** tab and select the **us-central1 (Iowa)** region
-    - click **View**
-    ![peer2 routes](peer2-routes.png)
-    - Notice that we have received 3 routes
-        2 @ "peering-route"
-        These are the CIDRs for the two subnets in the NCC VPC.
-            - 10.15.0.0/24
-            - 10.16.0.0/24
-        1 @ "imported-route"
-        This is the route that NCC learned via BGP from our FortiGate
-            - 192.168.100.0/24
+    ![peer table](peer_table.png)
 
-1. Look at the above pictured route table and notice the "default-route" for this region is pointing to the "Default internet gateway" as it's Next hop.
-    This presents a problem.  We need to route all traffic across our newly created VPC Peering link so that FortiGate can provide security.
-    - click on the **default-route** to open the details
-    - click **DELETE**
-    - navigate back to the routing table and notice that we have now imported the default route from the NCC VPC
-    ![new default](new-default.png)
+1. Verify routing in the FortiGate.
+    - Access FortiGate CLI and verify that we see **10.18.0.0/24** and **10.19.0.0/24**
 
-{{% notice info %}} It's worth noting that the terraform used to create this environment included a fireall rule to allow ALL ingress traffic from 10.0.0.0/8. If this were not in place, you would need to add it.  You can check the Firewall rules by clicking on the **FIREWALLS** tab {{% /notice %}}
+```sh
+fgt1 # get router info bgp summary 
 
-### Proceed to the next section
+VRF 0 BGP router identifier 10.15.0.2, local AS number 65200
+BGP table version is 6
+2 BGP AS-PATH entries
+0 BGP community entries
+
+Neighbor    V         AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+10.15.0.252 4      65100     879    1009        6    0    0 01:30:43        4
+10.15.0.253 4      65100     870     997        6    0    0 04:48:10        4
+10.17.1.1   4      65200     140     146        6    0    0 02:01:38        1
+
+Total number of neighbors 3
+
+
+fgt1 # get router info routing-table bgp
+Routing table for VRF=0
+B       10.16.0.0/24 [20/333] via 10.15.0.253 (recursive via 10.15.0.1, port2), 04:48:21, [1/0]
+B       10.18.0.0/24 [20/100] via 10.15.0.253 (recursive via 10.15.0.1, port2), 01:45:13, [1/0]
+B       10.19.0.0/24 [20/333] via 10.15.0.253 (recursive via 10.15.0.1, port2), 01:45:13, [1/0]
+B       192.168.100.0/24 [200/0] via 10.17.1.1 (recursive via RMT-FGT tunnel 35.188.153.216), 02:01:26, [1/0]
+
+
+fgt1 # 
+```
