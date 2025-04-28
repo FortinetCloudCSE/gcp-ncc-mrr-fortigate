@@ -17,7 +17,7 @@ Navigate to the original NCC project
 
 1. Accept Peer Spoke
     - Click on the peer-spoke in order to see the details screen.
-    - At the top of the screen, we will see an option to Accept or Reject.  click on **Accept**
+    - At the top of the screen, we will see an option to Accept or Reject.  Click on **Accept**.
 
     ![peer accept](peer_accept.png)
 
