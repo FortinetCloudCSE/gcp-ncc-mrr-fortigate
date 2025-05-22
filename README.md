@@ -1,8 +1,1 @@
-
-# gcp-ncc-mrr-fortigate
-
-To view the workshop, please go here: [GitHub Pages Link](https://fortinetcloudcse.github.io/gcp-ncc-mrr-fortigate/)
-
----
-
-For more information on creating these workshops, visit [FortinetCloudCSE User Repo](https://fortinetcloudcse.github.io/UserRepo/)
+<h1>gcp-ncc-mrr-fortigate</h1><h3>To view the workshop, please go here: <a href="https://fortinetcloudcse.github.io/gcp-ncc-mrr-fortigate/">gcp-ncc-mrr-fortigate</a></h3><hr><h3>For more information on creating these workshops, please go here: <a href="https://fortinetcloudcse.github.io/UserRepo/">FortinetCloudCSE User Repo</a></h3>
