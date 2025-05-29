@@ -1,8 +1,8 @@
 ---
-title: "Ch 3 - Build VPC NCC SPOKE "
+title: "Ch 5 - Build VPC NCC SPOKE "
 chapter: false
-linkTitle: "Ch 4: Build VPC NCC SPOKE"
-weight: 40
+linkTitle: "Ch 5: Build VPC NCC SPOKE"
+weight: 50
 ---
 
 ### ***Build GCP VPC Peering - estimated duration 30 min***
