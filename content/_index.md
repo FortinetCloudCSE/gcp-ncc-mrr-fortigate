@@ -17,4 +17,4 @@ This site will discuss how Google Cloud Platform (GCP) uses Network Connectivity
 ### Concept
 The below diagram shows the (High Level) architecture we are building for the lab. The remote FortiGate is represented as a VM, because the whole envrionment is built in GCP, but this could just as easily be an on-prem physical FortiGate or even FortiSASE.
 
-![NCC High Level](gcp_ncc.svg)
+![NCC High Level](gcp_ncc.png)
