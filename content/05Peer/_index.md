@@ -9,4 +9,4 @@ weight: 50
 
 Now that we have established our multi-region cloud on-ramp with rull BGP routing, let's discuss how to secure application VPCs.  After this section is complete our network will be configured similarly to the below diagram
 
-**NEED NEW PIC ![Peered VPC](./vpc-spoke.png)**
+![Peered VPC](./vpc-spoke.png)
