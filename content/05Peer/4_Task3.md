@@ -2,7 +2,7 @@
 title: "Task 3 - Verify Routing"
 linkTitle: "Verify Routes"
 chapter: false
-weight: 2
+weight: 3
 ---
 
 ## Check NCC VPC Routing Table

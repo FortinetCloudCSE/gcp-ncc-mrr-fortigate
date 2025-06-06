@@ -2,7 +2,7 @@
 title: "Task 1 - FortiGate BGP over IPSec"
 linkTitle: "FortiGate Overlay"
 chapter: false
-weight: 2
+weight: 1
 ---
 
 ## Configure IPSec Tunnels and BGP on FortiGate

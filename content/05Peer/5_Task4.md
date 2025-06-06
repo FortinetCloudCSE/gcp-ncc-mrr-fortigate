@@ -2,7 +2,7 @@
 title: "Task 4 - Verify Firewall"
 linkTitle: "Verify Firewall"
 chapter: false
-weight: 2
+weight: 4
 ---
 
 ## Verify traffic

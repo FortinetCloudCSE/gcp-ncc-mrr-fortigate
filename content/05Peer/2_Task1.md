@@ -2,7 +2,7 @@
 title: "Task 1 - Configure NCC SPOKE IN Application VPC"
 linkTitle: "Application VPC SPOKE CONFIG"
 chapter: false
-weight: 2
+weight: 1
 ---
 
 ## Configure VPC Peering on Application VPC
