@@ -10,47 +10,49 @@ weight: 2
 1. The Star topology in GCP NCC ensures that **edge** spokes can't talk to one another directly.  We set up the FortiGates as Center spokes, the application spokes must now traverse the Fortigate for inter-vpc communication or North/South connectivity to remote sites.
 
     - Navigate back to the application (peered) project
-    - Using the Hambuger menu on the top left of the screen, navigate to Compute Engine > VM instances >
-    - select the box next to the default route assosicated with the peer networks.
-    - Click **Delete**
+    - Using the Hambuger menu on the top left of the screen, navigate to Compute Engine > VM instances
+    - Open the details for each VM and click on SSH to open SSH-in-browser sessions for both.
+    - Start a ping from server 1 to server 2 ``` ping ping 10.20.0.2 ```  This should fail.
 
-    ![Delete route](delete_route.png)
+1. Create Address objects for the subnets containing the two servers.
+    - Navigate to Fortigate GUI ``` https://<fortigate1 public ip>:8443 ``` in your browser
+    - Navigate to Policy & Objects > Addresses
+    - Click **Create** and add an address for each Central CIDR
 
-1. Verify routing in the peer vpc.
-    - Click on the Effective routes tab and chose the peer vpcs for region **us-central1** and click **view**
-    - Verify that we see the route from the Remote FortiGate as well as the default pointing to our NCC vpc.
+    ![app1 cidr](app1_cent_cidr.png)
 
-    ![eff1 routes](eff-routes1.png)
+    ![app2 cidr](app2_cent_cidr.png)
 
+1. Create a policy allowing the traffic
 
-1. Verify routing in the FortiGate.
-    - Access FortiGate CLI and verify that we see **10.18.0.0/24**, **10.19.0.0/24**, **10.20.0.0/24** and **10.21.0.0/24**
+    - Navigate to Policy & Objects > Firewall Policy 
+    - Click **Create new**
+    - Configure the policy as below.  Anything not visible is left as default value
 
-```sh
-fgt1 # get router info bgp summary
+    ![East West Pol](e_w_pol.png)
 
-VRF 0 BGP router identifier 10.15.0.3, local AS number 65200
-BGP table version is 4
-2 BGP AS-PATH entries
-0 BGP community entries
+1. Verify that ping is working from 1 to server 2
 
-Neighbor    V         AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
-10.15.0.252 4      65100     189     221        4    0    0 01:00:56        6
-10.15.0.253 4      65100     189     212        2    0    0 01:00:57        6
-10.17.1.1   4      65200      65      70        4    0    0 00:55:29        1
+1. Attempt connectivity to remote site from server 1
 
-Total number of neighbors 3
+    - Start a ping from server 1 to server 2 ``` ping 192.168.100.2 ```  This should fail.
 
+1. Create a policy allowing the traffic on FortiGate1
 
-fgt1 # get router info routing-table bgp
-Routing table for VRF=0
-B       10.16.0.0/24 [20/333] via 10.15.0.253 (recursive via 10.15.0.1, port2), 01:01:06, [1/0]
-B       10.18.0.0/24 [20/100] via 10.15.0.253 (recursive via 10.15.0.1, port2), 00:04:50, [1/0]
-B       10.19.0.0/24 [20/333] via 10.15.0.253 (recursive via 10.15.0.1, port2), 00:04:50, [1/0]
-B       10.20.0.0/24 [20/100] via 10.15.0.253 (recursive via 10.15.0.1, port2), 00:02:55, [1/0]
-B       10.21.0.0/24 [20/333] via 10.15.0.253 (recursive via 10.15.0.1, port2), 00:02:55, [1/0]
-B       192.168.100.0/24 [200/0] via 10.17.1.1 (recursive via RMT-FGT tunnel 34.121.250.35), 00:55:15, [1/0]
+    - Navigate to Policy & Objects > Firewall Policy 
+    - Click **Create new**
+    - Configure the policy as below.  Anything not visible is left as default value
 
+    ![fgt remote](fgt1_remote.png)
 
-fgt1 # 
-```
+1. Create a policy allowing the traffic on Remote Fortigate
+
+    - Navigate to Policy & Objects > Firewall Policy 
+    - Click **Create new**
+    - Configure the policy as below.  Anything not visible is left as default value
+
+    ![fgt1 in](rmt_fgt1_in.png)
+
+1. Verify connectivity to remote site from server 1
+
+    - Start a ping from server 1 to server 2 ``` ping 192.168.100.2 ``` This should now succeed.
