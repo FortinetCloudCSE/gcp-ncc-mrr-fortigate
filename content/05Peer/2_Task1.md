@@ -5,6 +5,12 @@ chapter: false
 weight: 1
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Configure NCC Spoke proposal in Application Project
+| **Task**                   | Log into GCP NCC in Application project and configure spoke proposal 
+| **Verify task completion** | You should have two spokes in the Application project which are inactive, pending review
+
 ## Configure VPC Peering on Application VPC
 
 During bootstrap of this environment, a separate project containing two application VPCs was configured with an Ubuntu VM in each.  For this exercise, we will log into that project and create a VPC spoke for each of those.

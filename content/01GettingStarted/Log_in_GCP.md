@@ -4,6 +4,12 @@ linkTitle: "GCP Console"
 weight: 1
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Connect to GCP Console
+| **Task**                   | Open GCP Console in Incognito browser window
+| **Verify task completion** | You should see the resources configured in the lab environment
+
 ## Open Console
 
 When your lab is fully provisioned, you will seee a list of student resources on the left panel.  This screen should be left up for the duration of the lab.  If you close it by accident, you can re-open it by clicking on the lab session again See "CH1: Setup".   It is probably a good idea to copy and paste these values into your text editor for safe keeping.

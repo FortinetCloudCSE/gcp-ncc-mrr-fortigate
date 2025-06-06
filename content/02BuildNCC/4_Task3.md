@@ -5,6 +5,12 @@ chapter: false
 weight: 3
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Complete Fortigate peering setup
+| **Task**                   | Log into Fortigates 1 and 2 and configure BGP for NCC Peering connections
+| **Verify task completion** | You should have two established BGP connections in each FortiGate for their respective NCC Cloud Router Peers
+
 ## Configure FortiGates
 
 1. Log into FortiGate 1 CLI:

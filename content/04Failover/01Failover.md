@@ -5,6 +5,12 @@ chapter: false
 weight: 1
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Verify that routing works after failover
+| **Task**                   | Log into Fortigate 1 and shutdown IPsec tunnel to Remote FortiGate
+| **Verify task completion** | You should still be able to reach the GCP application over the IPsec tunnel to FortiGate 2
+
 ## Test Failover
 
 As we saw previously, the remote fortigate was preferring the route over tunnel FGT-1 for the 10.15.0.0/24 subnet.
@@ -44,6 +50,8 @@ As we saw previously, the remote fortigate was preferring the route over tunnel 
 4. Return to SSH-in-browser and confirm that we can still reach our ubuntu server in us-central1
 
     ![Curl 2](curl2.png)
+
+5. Please go back to FortiGate 1 and re-enable the IPSec Tunnel.  This will be important for the next section.
 
 {{% notice info %}} Notice that we are using BFD for the BGP sessions over IPSec.  When I was first testing this, failing the IPSec tunnel resulted in a 3 minute black holing of traffic.  This was because we had to wait for the default BGP neighbor timers to expire before withdrawing the route.  During that time,the IPSec tunnel was down, so the original BGP route had a bad next hop, meaning that we ended up using the default out to the internet.  I enabled BFD to solve this problem.  When BFD is in use, for BGP, we recognize the neighbor down much more quickly.  The result was nearly instant failover to FGT-2 tunnel.  BGP neighbor timers can be configured, to reduce failover time, but this is not as fast as BFD.{{% /notice %}}
 

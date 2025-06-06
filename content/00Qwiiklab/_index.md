@@ -4,6 +4,12 @@ linkTitle: "Qwiklab (start here)"
 weight: 5
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Log into Qwiklab
+| **Task**                   | Create account and login
+| **Verify task completion** | You should see lab card available on your home page
+
 ## ***Navigate to Qwiklab - estimated duration 5 min***
 
 This lab will use [Qwiklabs](https://fortinet.qwiklabs.com) to build all of the required infrastructure.

@@ -4,6 +4,12 @@ linkTitle: "NCC Hub"
 weight: 1
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Configure NCC Hub and spoke topology
+| **Task**                   | Access NCC to create Hub and Spokes 
+| **Verify task completion** | You should have two FortiGates acting as "center" spokes in a hub named ql-hub
+
 ## Create NCC Hub
 
 1. From the console, type ``` Network Connectivity ``` in the search bar.  One of the first options should be the Network Connectivity Center.  Click on that to move forward.

@@ -5,6 +5,12 @@ chapter: false
 weight: 1
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Build FortiGate Overlay
+| **Task**                   | Create BGP over IPsec tunnels between Remote FortiGate and "GCP" Fortigates
+| **Verify task completion** | The Remote FortiGate should have two functional IPsec tunnels with 2 established BGP peering sessions with FortiGates one and two
+
 ## Configure IPSec Tunnels and BGP on FortiGate
 
 In order to save time during this lab, we will use SSH to access FortiGates and copy/paste in CLI commands

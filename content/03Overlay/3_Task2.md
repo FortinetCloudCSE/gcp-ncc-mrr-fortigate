@@ -5,6 +5,12 @@ chapter: false
 weight: 2
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Verify overlay routing
+| **Task**                   | Log into Fortigates and check BGP routing
+| **Verify task completion** | You should see full exchange of routing information
+
 ## Check BGP Routing
 
 1. Check FortiGate routing.

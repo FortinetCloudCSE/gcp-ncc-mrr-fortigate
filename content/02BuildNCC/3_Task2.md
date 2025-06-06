@@ -5,6 +5,12 @@ chapter: false
 weight: 2
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Complete NCC BGP configurations
+| **Task**                   | Access newly created spokes and configure BGP
+| **Verify task completion** | You should see two BGP configruations for each NCC Fortigate spoke
+
 ## Configure BGP for Spokes
 
 After the previous section, we should now see a Hub and two Spokes in Network Connectivity Center.  In this section, we will configure BGP on these Spokes.  

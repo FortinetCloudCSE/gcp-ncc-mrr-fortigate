@@ -5,6 +5,12 @@ chapter: false
 weight: 3
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Verify Routing
+| **Task**                   | Delete default routes in application VPCs and confirm routes from FortiGate
+| **Verify task completion** | You should have a default route and a route for the remote site from FortiGate in the effective routes sectiom
+
 ## Check NCC VPC Routing Table
 
 1. Now that we have the spoke configured, we need to go back to the Application project and delete the default route which is configuredfor the peer-vpc This route will take precedence over the default being advertised by FortiGate.

@@ -5,6 +5,12 @@ weight: 10
 #archetype: "chapter"
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Start Lab
+| **Task**                   | Navigate to lab page and start
+| **Verify task completion** | Your lab should successfully start and display student resources
+
 ## ***Building your Environment - estimated duration 10 min***
 
 ### Prereqs

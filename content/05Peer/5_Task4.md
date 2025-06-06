@@ -5,6 +5,14 @@ chapter: false
 weight: 4
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Ensure proper traffic flow via FortiGate for North/South and East/West traffic from Application servers
+| **Task**                   | SSH to applications and run ping tests between local and remote servers.  Configure FortiGae policies to allow the traffic
+| **Verify task completion** | When complete, you should be able to ping between the application servers in different VPCs as well as ping the Remote Server from Application servers
+
+{{% notice info %}} Prior to starting this section, log into FortiGate 1 and ensure that you tured the remote IPsec tunnel back up.{{% /notice %}}
+
 ## Verify traffic
 
 1. The Star topology in GCP NCC ensures that **edge** spokes can't talk to one another directly.  We set up the FortiGates as Center spokes, the application spokes must now traverse the Fortigate for inter-vpc communication or North/South connectivity to remote sites.

@@ -5,6 +5,12 @@ chapter: false
 weight: 2
 ---
 
+|                            |    |  
+|----------------------------| ----
+| **Goal**                   | Accept proposed spokes
+| **Task**                   | Log into NCC project and accept proposed spokes
+| **Verify task completion** | You should have a total of four Active spokes in the NCC projects
+
 ## Configure Application Spoke in NCC Network
 
 Navigate to the original NCC project 
