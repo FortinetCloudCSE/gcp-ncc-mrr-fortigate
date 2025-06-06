@@ -15,7 +15,7 @@ After the previous section, we should now see a Hub and two Spokes in Network Co
 
 1. Click the arrow next to the Instance name. And Click on **CONFIGURE BGP SESSION** . Notice that there are two sessions configure.  This provides redundancy in case of a failure.
 
-![Spoke1]spoke1.png
+![Spoke1](spoke1.png)
 
 1. Configure Cloud Router
      - For cloud router, select **Create new router**

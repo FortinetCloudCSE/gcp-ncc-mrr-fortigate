@@ -12,7 +12,7 @@ weight: 1
 
 1. From the Network Connectivity Center screen, select **HUBS > CREATE HUB**
      - Provide a Name
-     - Preset Topology will be **Mesh topology**
+     - Preset Topology will be **Star topology**
      - Private Service Connect Propagation will be **Off**
      - Click on **Next Step**
 
@@ -22,6 +22,7 @@ weight: 1
      - Now Click on **Add A SPOKE**
      - Spoke type will be **Router appliance**
      - Provide a Name that will make sense when troubleshooting.
+     - **Spoke group** will be **center**
      - Region will be **us-central1 (Iowa)**
      - Select **On** for Site-to-site data transfer
      - for VPC, we will choose **routelab-ncc-vpc-random**

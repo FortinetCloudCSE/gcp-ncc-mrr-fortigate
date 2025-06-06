@@ -16,15 +16,14 @@ Navigate to the original NCC project
     ![hub inactive peer spoke](hub_peer_spoke_inact.png)
 
 1. Accept Peer Spoke
-    - Click on the peer-spoke in order to see the details screen.
+    - Click on the peer-spokes in order to see the details screen.
     - At the top of the screen, we will see an option to Accept or Reject.  Click on **Accept**.
+    - Repeat for both spokes
 
     ![peer accept](peer_accept.png)
 
-1. Confirm that the spoke becomes active.
+1. Confirm that the spokes become active.
 
     ![peer spoke active](peer_spoke_active.png)
-
-
 
 ### Proceed to the next section

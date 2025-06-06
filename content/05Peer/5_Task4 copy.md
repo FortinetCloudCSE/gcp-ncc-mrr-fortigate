@@ -1,14 +1,16 @@
 ---
-title: "Task 3 - Verify Routing"
-linkTitle: "Verify Routes"
+title: "Task 4 - Verify Firewall"
+linkTitle: "Verify Firewall"
 chapter: false
 weight: 2
 ---
 
-## Check NCC VPC Routing Table
+## Verify traffic
 
-1. Now that we have the spoke configured, we need to go back to the Application project and delete the default route which is configuredfor the peer-vpc This route will take precedence over the default being advertised by FortiGate.
-    - Navigate to VPC Network > Routes > Route Management
+1. The Star topology in GCP NCC ensures that **edge** spokes can't talk to one another directly.  We set up the FortiGates as Center spokes, the application spokes must now traverse the Fortigate for inter-vpc communication or North/South connectivity to remote sites.
+
+    - Navigate back to the application (peered) project
+    - Using the Hambuger menu on the top left of the screen, navigate to Compute Engine > VM instances >
     - select the box next to the default route assosicated with the peer networks.
     - Click **Delete**
 
