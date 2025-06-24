@@ -17,11 +17,13 @@ After the previous section, we should now see a Hub and two Spokes in Network Co
 
 1. Click on **Network Connectivity Center > SPOKES** and select the first spoke
 
-![Spokes](spokes.png)
+     ![Spokes](spokes.png)
 
-1. Click the arrow next to the Instance name. And Click on **CONFIGURE BGP SESSION** . Notice that there are two sessions configure.  This provides redundancy in case of a failure.
+1. Click the arrow next to the Instance name. And Click on **CONFIGURE BGP SESSION** to configure the first BGP Session. Notice that there are two sessions configure.  This provides redundancy in case of a failure.
 
-![Spoke1](spoke1.png)
+     {{% notice info %}} Take note of the IP address next to the instance name.  The picture below shows 10.15.0.2, but this may different in your lab.  This IP will be used as the router ID when configuring BGP on the FortiGate in the next chapter. {{% /notice %}}
+
+     ![Spoke1](spoke1.png)
 
 1. Configure Cloud Router
      - For cloud router, select **Create new router**
@@ -36,15 +38,17 @@ After the previous section, we should now see a Hub and two Spokes in Network Co
 1. Configure BGP Sessions
      - Click on **EDIT BGP SESSION**
      - Select IPv4 BGP session
+     - Type in a name for the session
      - For Peer ASN, we will use **65200** (This will be the ASN confgired on FortiGate)
      - Leave Advertised route priority (MED) empty.
      - Cloud Router BGP IP for the first session will be **10.15.0.252**
      - Leave Advanced options as default
      - Click **SAVE AND CONTINUE**
-     
+
      ![BGP Config](bgp_conf.png)
 
      - Repeat for the second BGP session
+          - Type in a **different** name for the BGP session
           - The Cloud Router BGP IP for the second session will be **10.15.0.253**
      - When done click **SAVE AND CONTINUE**
      - Click **CREATE**

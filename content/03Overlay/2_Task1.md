@@ -18,8 +18,8 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
 {{% notice warning %}} You will need to use your notepad to replace the remote-gw values in the below CLI Templates with values from your environment! {{% /notice %}}
 
 1. Log into the **remote FortiGate** using ``` ssh admin@<fortigate public ip> ``` password will be ```Fortinet1234$```
-      
-  - Copy the below configurations and modify the values in "<>" to match your environment
+
+- Copy the below configurations and **modify the values in "<>"** to match your environment
 
     ```sh
     

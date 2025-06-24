@@ -13,7 +13,8 @@ weight: 3
 
 ## Check NCC VPC Routing Table
 
-1. Now that we have the spoke configured, we need to go back to the Application project and delete the default route which is configuredfor the peer-vpc This route will take precedence over the default being advertised by FortiGate.
+1. Now that we have the spoke configured, we need to go back to the Application project and delete the default route which is configured for **both** of the the peer-vpc networks. These routes are pointing to the Default Internet Gateway and will take precedence over the default being advertised by FortiGate.
+
     - Navigate to VPC Network > Routes > Route Management
     - select the box next to the default route assosicated with the peer networks.
     - Click **Delete**

@@ -17,13 +17,13 @@ During bootstrap of this environment, a separate project containing two applicat
 
 1. Log into the Project Containing the application VPC
 
-    When you opened the console during the initial setup of this lab, you were logged into the project containing the FortiGates and all of the networking components requi to build the overlay.  We need to log into the application project.
+    When you opened the console during the initial setup of this lab, you were logged into the project containing the FortiGates and all of the networking components required to build the overlay.  We need to log into the application project.
 
     - From the top of the screen, click on the current project ID.  This will open the **Select Project** popup window.
     - Click on the **ALL** tab.
     - Next, click on the other project ID.  
 
-    {{% notice info %}} If you are unclear what which project this is, you can go to the Student Information pane on the left of the screen in qwiklabs and see the Application VPC ID {{% /notice %}}
+    {{% notice info %}} If you are unclear what which project this is, you can go to the Student Information pane on the left of the screen in qwiklabs and see the **Peered Project ID** {{% /notice %}}
     ![select project](select_proj.png)
 
 1. Now that you are logged into the Application project You will need to navigate to Network Connectivity Center

@@ -8,10 +8,10 @@ weight: 4
 |                            |    |  
 |----------------------------| ----
 | **Goal**                   | Ensure proper traffic flow via FortiGate for North/South and East/West traffic from Application servers
-| **Task**                   | SSH to applications and run ping tests between local and remote servers.  Configure FortiGae policies to allow the traffic
+| **Task**                   | SSH to applications and run ping tests between local and remote servers.  Configure FortiGate policies to allow the traffic
 | **Verify task completion** | When complete, you should be able to ping between the application servers in different VPCs as well as ping the Remote Server from Application servers
 
-{{% notice info %}} Prior to starting this section, log into FortiGate 1 and ensure that you tured the remote IPsec tunnel back up.{{% /notice %}}
+{{% notice info %}} Prior to starting this section, log into FortiGate 1 and ensure that you turned the remote IPsec tunnel back up.{{% /notice %}}
 
 ## Verify traffic
 
@@ -20,7 +20,7 @@ weight: 4
     - Navigate back to the application (peered) project
     - Using the Hambuger menu on the top left of the screen, navigate to Compute Engine > VM instances
     - Open the details for each VM and click on SSH to open SSH-in-browser sessions for both.
-    - Start a ping from server 1 to server 2 ``` ping ping 10.20.0.2 ```  This should fail.
+    - Start a ping from server 1 to server 2 ``` ping 10.20.0.2 ```  This should fail.
 
 1. Create Address objects for the subnets containing the two servers.
     - Navigate to Fortigate GUI ``` https://<fortigate1 public ip>:8443 ``` in your browser

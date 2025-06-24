@@ -15,15 +15,19 @@ weight: 3
 
 1. Log into FortiGate 1 CLI:
 
+{{% notice info %}} The public IP of all FortiGates can be found in the studend resources section on the left side of the qwiklabs page where you started the lab.  See the **GCP Console** section of **Chapter 1 (Setup)**.  You can also see the **External IP** of each instance in the GCP Console under Compute Engine > VM instances {{% /notice %}}
+
 - If you have a favorite ssh application like putty (windows) or terminal (mac), ssh using ``` ssh admin@<fortigate public ip> ``` password will be ```Fortinet1234$```
-- If not, go to the GCP Console and open a Cloud Shell terminal and issue the ssh command fromt there.
+
+- If not, go to the GCP Console and open a Cloud Shell terminal and issue the ssh command from there.
 
 ![SSH Shell](ssh_shell.png)
-
 
 2. Copy the below configuration and paste it into the CLI
 
 {{% notice warning %}} Ensure that the router-id used in the fortigate matches the IP address for port2.  This is usually .2, but is dynamically assigned by GCP {{% /notice %}}
+
+- You can get the internal ip address of port 2 from the fortigate CLI using the ``` get sys int physical port2 ``` command.
 
    FortiGate 1 (US Central) BGP Configuration:
 
@@ -183,4 +187,4 @@ weight: 3
 
 ![GCP BGP](gcp_cr_bgp.png)
 
-### This chapter is complete!  Congratulations.  You can move to the next Chapter
+### This chapter is complete!  Congratulations.  You can move to the next Chapter.

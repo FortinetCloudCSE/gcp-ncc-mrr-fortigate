@@ -72,6 +72,8 @@ weight: 2
 
 2.  Check BGP Routing in NCC by navigating to **Network Connectivity Center > select your hub name > ROUTES**
 
+    {{% notice info %}} You will not see any routes until you select a **Region** from the dropdown menu. {{% /notice %}}
+
     - Let's check **us-central1 (Iowa)** region first.
 
     ![Central Routes](cent_routes.png)
@@ -87,4 +89,4 @@ weight: 2
 {{% notice info %}} In our environment, we are using SNAT in the FortiGate Policy, meaning that traffic will always return to the FortiGate from which it was recieved. However, in some situations, that is not desirable.  As we have seen, the route priorities causing the local FortiGate to be preferred should prevent asymmetrical routing when both devices are up.{{% /notice %}}
     
 
-### This chapter is complete!  Congratulations.  You can move to the next Chapter
+### This chapter is complete!  Congratulations.  You can move to the next Chapter.
