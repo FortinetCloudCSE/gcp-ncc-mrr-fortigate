@@ -68,7 +68,7 @@ weight: 4
 
 ## Congratulations!  You have completed the lab work!  Now you can click on the below link to participate in a short Capture the Flag style game.
 
-**You will be prompted for a username, Just type any name that makes sense!**
+**You will be prompted for a username. Pick something fun!**
 
 <div style="text-align: center; padding: 40px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
   <h4 style="color: #333; margin-bottom: 20px;">🎮 Interactive CTF Challenge</h4>
