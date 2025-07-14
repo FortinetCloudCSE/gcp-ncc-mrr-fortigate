@@ -65,6 +65,19 @@ weight: 4
 
     - Start a ping from server 1 to server 2 ``` ping 192.168.100.2 ``` This should now succeed.
 
+### Discussion
+
+In this final hands-on task, we implemented the security policies that govern traffic flow. We started by demonstrating that, by design, all traffic between our application VPCs (East-West) and from our VPCs to the remote network (North-South) was blocked by the FortiGate. We then logged into the FortiGate appliances and created specific, granular firewall policies to explicitly permit this traffic. By successfully pinging between all locations after creating the policies, we have verified that our FortiGates are now acting as the central enforcement point for all traffic, securing our entire hybrid cloud network.
+
+### Chapter Summary
+
+This chapter was dedicated to integrating our separate application VPCs into the secure transit hub we built.
+
+*   **Task 1: Configure Application VPC Spokes:** We initiated the connection by creating VPC spoke proposals from within the application project, pointing them towards our central NCC hub.
+*   **Task 2: Accept Application Spokes:** Acting as the network administrator, we switched back to the networking project and accepted the incoming spoke requests, officially activating the peering between the application VPCs and the hub.
+*   **Task 3: Verify Routing:** We manipulated the VPC routing tables, removing the direct internet gateways and confirming that the application VPCs learned the new default route from the FortiGates, forcing all traffic through them for inspection.
+*   **Task 4: Verify Firewall:** Finally, we configured the firewall policies on our FortiGates to allow the desired East-West and North-South traffic flows, completing the setup of our secure, centralized transit architecture.
+
 
 ## Congratulations!  You have completed the lab work!  Now you can click on the below link to participate in a short Capture the Flag style game.
 

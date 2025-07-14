@@ -88,4 +88,22 @@ weight: 2
 
 {{% notice info %}} In our environment, we are using SNAT in the FortiGate Policy, meaning that traffic will always return to the FortiGate from which it was recieved. However, in some situations, that is not desirable.  As we have seen, the route priorities causing the local FortiGate to be preferred should prevent asymmetrical routing when both devices are up.{{% /notice %}}
 
-### This chapter is complete!  Congratulations.  You can move to the next Chapter.
+### Discussion
+
+In this task, we verified the end-to-end routing of our overlay network. We inspected the BGP routing tables on both the remote FortiGate and within the GCP Network Connectivity Center. This confirmed that:
+1.  The remote FortiGate learned routes to both GCP regions (`us-central1` and `us-east1`) from both GCP FortiGates.
+2.  The remote FortiGate correctly chose the most efficient path (lowest metric) for each destination.
+3.  The GCP NCC Hub also learned the route to our on-premises network (`192.168.100.0/24`) from both FortiGate spokes, preferring the path through the local FortiGate in each region to prevent unnecessary inter-regional traffic.
+
+This confirms our overlay is not only working but is also configured for optimal, cost-effective routing.
+
+### Chapter Summary
+
+This chapter was focused on building and verifying the secure overlay network.
+
+*   **Task 1: FortiGate BGP over IPsec:** We established secure IPsec tunnels between the remote FortiGate and the two regional GCP FortiGates. Over these tunnels, we configured iBGP sessions, allowing the devices to dynamically advertise and learn routes from each other.
+*   **Task 2: Verify Routing:** We then thoroughly validated our configuration by examining the routing tables. We confirmed that all FortiGates had learned the necessary routes, that redundant paths were available for failover, and that traffic was intelligently routed over the most efficient path during normal operations.
+
+With the overlay built and verified, our hybrid network is now fully connected and secured.
+
+### You can move to the next Chapter

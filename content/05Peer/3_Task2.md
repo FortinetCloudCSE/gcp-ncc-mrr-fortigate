@@ -32,4 +32,10 @@ Navigate back to to the **original** NCC project
 
     ![peer spoke active](peer_spoke_active.png)
 
+### Discussion
+
+In this task, we completed the cross-project VPC peering process. Acting as the administrator of the central networking hub, we switched back to our primary project. Here, we found the two spoke connection proposals from the application project waiting for approval.
+
+By clicking **Accept** for each proposal, we formally authorized the connection. This action finalized the peering, securely linking the two application VPCs to our transit hub. As a result, all four of our spokes—the two FortiGate NVAs and the two application VPCs—are now in an **Active** state, and GCP can begin exchanging routes between them.
+
 ### Proceed to the next section

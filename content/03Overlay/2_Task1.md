@@ -257,4 +257,10 @@ In order to save time during this lab, we will use SSH to access FortiGates and 
 
   ```
 
+### Discussion
+
+In this task, we constructed a secure IPsec overlay network connecting our "remote" FortiGate to the two FortiGates running in GCP (`FGT-1` and `FGT-2`). This overlay creates encrypted tunnels over the public internet, effectively forming a private, secure extension of our network into the cloud.
+
+On top of this secure foundation, we configured iBGP (Internal BGP) to run over the IPsec tunnels. This allows the FortiGates to dynamically exchange routing information. Specifically, the remote FortiGate is now advertising its local network (`192.168.100.0/24`) to the GCP FortiGates. This automated route sharing is the first step in enabling seamless, secure, and resilient communication between our simulated on-premises environment and our cloud resources. We also enabled BFD (Bidirectional Forwarding Detection) for faster failure detection of the BGP sessions.
+
 ### Proceed to the next section

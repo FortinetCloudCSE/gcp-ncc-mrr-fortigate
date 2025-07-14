@@ -187,4 +187,18 @@ weight: 3
 
 ![GCP BGP](gcp_cr_bgp.png)
 
-### This chapter is complete!  Congratulations.  You can move to the next Chapter.
+### Discussion
+
+In this final configuration step, we completed the BGP peering from the FortiGate side. We logged into each FortiGate appliance and applied the necessary BGP configuration to establish a connection with the GCP Cloud Routers. By verifying the BGP session status and the received routes on both the FortiGates and in the GCP console, we have now confirmed that our secure transit network is fully operational and ready to dynamically exchange routing information.
+
+### Chapter Summary
+
+Congratulations on completing this chapter! You have successfully built a robust and secure transit network foundation using GCP's Network Connectivity Center and FortiGate NVAs.
+
+*   **Task 1: Create NCC Hub:** We started by creating a central NCC Hub and attaching our regional FortiGates as spokes, establishing the core hub-and-spoke topology.
+*   **Task 2: Configure Spokes:** We then configured the GCP side of the connection by creating Cloud Routers for each spoke and defining the parameters for the BGP sessions.
+*   **Task 3: Configure FortiGate BGP:** Finally, we configured the FortiGate appliances to peer with the GCP Cloud Routers, enabling dynamic route exchange between your VPCs and the security appliances.
+
+Your network is now ready for the next steps, where we will build an IPsec overlay and configure security policies.
+
+### You can move to the next Chapter.

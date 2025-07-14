@@ -65,4 +65,10 @@ During bootstrap of this environment, a separate project containing two applicat
 
    ![Inactive Peer](inact_peer.png)
 
+### Discussion
+
+In this task, we initiated the process of connecting our application VPCs to the central transit hub. We switched from our primary networking project to the separate "Application" project. From there, we created two new NCC spokes, one for each application VPC (`p2-peer-vpc` and `p2-peer2-vpc`).
+
+Unlike the FortiGate spokes, these are of the type **VPC network**. By creating them, we are essentially sending a connection *proposal* to the NCC Hub in our main networking project. This is a critical security and administrative step in GCP, ensuring that network owners must explicitly approve any new connections to their hub. The task concludes with both spokes in an "Inactive, pending review" state, waiting for the hub administrator (us, in the next task) to accept the peering request.
+
 ### Proceed to the next section

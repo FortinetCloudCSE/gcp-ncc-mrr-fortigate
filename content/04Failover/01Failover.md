@@ -55,4 +55,15 @@ As we saw previously, the remote fortigate was preferring the route over tunnel 
 
 {{% notice info %}} Notice that we are using BFD for the BGP sessions over IPSec.  When I was first testing this, failing the IPSec tunnel resulted in a 3 minute black holing of traffic.  This was because we had to wait for the default BGP neighbor timers to expire before withdrawing the route.  During that time, the IPSec tunnel was down so the original BGP route had a bad next hop, meaning that we ended up using the default out to the internet.  I enabled BFD to solve this problem.  When BFD is in use for BGP, we recognize the neighbor down much more quickly.  The result was nearly instant failover to FGT-2 tunnel.  BGP neighbor timers can be configured, to reduce failover time, but this is not as fast as BFD.{{% /notice %}}
 
+### Chapter Synopsis
+
+This chapter demonstrated the resilience and high-availability of our hybrid cloud network. We simulated a network failure by manually disabling the primary IPsec tunnel between our remote site and the `us-central1` FortiGate.
+
+We observed the following:
+*   **Automatic Failover:** Thanks to our redundant design and dynamic BGP routing, the remote FortiGate automatically detected the path failure.
+*   **Route Convergence:** The routing table on the remote FortiGate quickly converged, redirecting traffic destined for the `us-central1` network through the secondary IPsec tunnel to the `us-east1` FortiGate.
+*   **Seamless Connectivity:** We confirmed that connectivity from our remote server to the application server in `us-central1` was maintained throughout the failover, with minimal disruption.
+
+A key component highlighted in this test was the use of **Bidirectional Forwarding Detection (BFD)**, which enabled near-instantaneous detection of the link failure, allowing BGP to reconverge much faster than it would with its default timers. This exercise proves that our architecture can withstand a regional link failure without losing connectivity to our cloud resources.
+
 ### This chapter is complete!  You can move to the next chapter.

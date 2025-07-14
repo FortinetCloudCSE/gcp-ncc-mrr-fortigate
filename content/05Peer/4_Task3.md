@@ -59,3 +59,13 @@ B       192.168.100.0/24 [200/0] via 10.17.1.1 (recursive via RMT-FGT tunnel 34.
 
 fgt1 # 
 ```
+
+### Discussion
+
+In this crucial task, we redirected all outbound traffic from our application VPCs to flow through our FortiGate security appliances. To achieve this, we first deleted the default routes in the application VPCs that pointed directly to the internet. This action forces the VPCs to honor the new default route being advertised by the FortiGates via the Network Connectivity Center.
+
+We then verified the routing from two perspectives:
+1.  **From the GCP VPC:** We checked the "Effective routes" for our application VPCs and confirmed they had learned the default route (`0.0.0.0/0`) and the route to the remote on-premises network, both pointing towards the NCC hub.
+2.  **From the FortiGate:** We inspected the BGP routing table on the FortiGate and confirmed it had learned the specific CIDR ranges of all the application VPC subnets.
+
+This confirms that our transit routing is fully configured. All traffic originating from the application VPCs will now be sent to the FortiGates for security inspection before reaching its final destination.
