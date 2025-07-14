@@ -7,6 +7,6 @@ weight: 50
 
 ### ***Build GCP VPC Peering - estimated duration 30 min***
 
-Now that we have established our multi-region cloud on-ramp with rull BGP routing, let's discuss how to secure application VPCs.  After this section is complete our network will be configured similarly to the below diagram
+Now that we have established our multi-region cloud on-ramp with full BGP routing, let's discuss how to secure application VPCs.  After this section is complete our network will be configured similarly to the below diagram
 
 ![Peered VPC](./vpc-spoke.png)

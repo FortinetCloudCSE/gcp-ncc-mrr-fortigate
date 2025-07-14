@@ -35,8 +35,11 @@ After the previous section, we should now see a Hub and two Spokes in Network Co
 
      ![Cloud Router](cloud_router.png)
 
+
+     {{% notice info %}} We will be configuring **two** bgp sessions for each FortiGate.  There are two FortiGates deployed, one in us-central1 and one in us-east1.  meaning we will be configuring a total of **four** bgp sessions.{{% /notice %}}
+
 1. Configure BGP Sessions
-     - Click on **EDIT BGP SESSION**
+     - Click on **EDIT BGP SESSION** to edit the first BGP session.
      - Select IPv4 BGP session
      - Type in a name for the session
      - For Peer ASN, we will use **65200** (This will be the ASN confgired on FortiGate)
@@ -56,14 +59,24 @@ After the previous section, we should now see a Hub and two Spokes in Network Co
 
      ![spoke1 done](spoke1_done.png)
 
+
+     
+
 1. Return to **Network Connectivity Center > SPOKES** and repeat steps 1 and 2 above for the FortiGate in US-EAST1
-     - All values will be the same with the below exceptions:
+
+     {{% notice info %}} We will reuse **65100 as the "Cloud Router ASN"** when configuring the Cloud Router in us-east1.  We will also reuse **65200 as the "Peer ASN"** when configuring the BGP sessions in us-east1{{% /notice %}}
+
+     - **All values will be the same with the below exceptions:**
      - The names will need to be different
      - FortiGate BGP Session fgt2-1 will have Cloud Router BGP IP **10.16.0.252**
      - FortiGate BGP Session fgt2-1 will have cloud Router BGP IP **10.16.0.253**
      - The result should look like below:
      
      ![Spoke2 done](spoke2_done.png)
+
+### Discussion
+
+In this task, we created the GCP cloud router and BGP configurations which will be used to peer with the FortiGate Router Appliance.  This will allow NCC to share routing information with FortiGate to allow connectivity between all GCP and on-prem resources.
 
 ### Proceed to the next section
 

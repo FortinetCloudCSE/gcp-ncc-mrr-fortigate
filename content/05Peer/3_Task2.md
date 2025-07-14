@@ -13,7 +13,7 @@ weight: 2
 
 ## Configure Application Spoke in NCC Network
 
-Navigate to the original NCC project 
+Navigate back to to the **original** NCC project 
 
 1. Navigate to Network Connectivity Center
 

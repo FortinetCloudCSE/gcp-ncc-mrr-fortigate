@@ -39,7 +39,7 @@ weight: 2
 
     ```
 
-    - Let's verify that we are receiving both routes from both peers.  In the event that one of the FortiGates becomes unreachable, we should install the less desireable route from the other FortiGate.
+    - Let's verify that we are receiving both routes from both peers.  This is important, because in the event that one of the remote FortiGates goes down, the resources in GCP will still be reachable.
 
     ```sh
 
@@ -78,15 +78,14 @@ weight: 2
 
     ![Central Routes](cent_routes.png)
 
-    - We can see the route learned from the local FortiGate (fgt1) has a lower priority.  According to this [link](https://cloud.google.com/network-connectivity/docs/router/concepts/learned-routes), route priority is treated like MED, meaning that the lowest value is preferred.
+    - We can see the route learned from the local FortiGate (fgt1) has a lower numerical priority.  According to this [link](https://cloud.google.com/network-connectivity/docs/router/concepts/learned-routes), route priority is treated like MED, meaning that the lowest numerical value is preferred.
 
     - Let's check **us-east1 (South Carolina)** region next.
 
     ![East Routes](east_routes.png)
 
-    - In this case, the lower priority value is assigned to the route learned from the local FortiGate (fgt2).  
-    
+    - In this case, the lower numerical priority value is assigned to the route learned from the local FortiGate (fgt2).  
+
 {{% notice info %}} In our environment, we are using SNAT in the FortiGate Policy, meaning that traffic will always return to the FortiGate from which it was recieved. However, in some situations, that is not desirable.  As we have seen, the route priorities causing the local FortiGate to be preferred should prevent asymmetrical routing when both devices are up.{{% /notice %}}
-    
 
 ### This chapter is complete!  Congratulations.  You can move to the next Chapter.

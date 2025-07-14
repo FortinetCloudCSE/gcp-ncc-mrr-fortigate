@@ -24,6 +24,8 @@ weight: 1
 
      ![Hub Configuration](hub_conf.png)
 
+     {{% notice info %}} We will be configuring **two** router spokes.  There are two FortiGates deployed, one in us-central1 and one in us-east1. Each FortiGate will be a router spoke.{{% /notice %}}
+
 1. Add two spokes to the Hub
      - Now Click on **Add A SPOKE**
      - Spoke type will be **Router appliance**
@@ -48,5 +50,10 @@ weight: 1
 
      ![Create 2](create2.png)
 
+
+
+### Discussion
+
+In this task, we created the foundation of our secure transit network. We configured a Network Connectivity Center (NCC) Hub, which acts as a central point for managing traffic. We then added our two FortiGate Network Virtual Appliances (NVAs) from different regions (`us-central1` and `us-east1`) as spokes to this hub. By doing this, we've prepared our environment to use the FortiGates for centralized routing and security inspection for any traffic that flows through the NCC hub.
+
 ### Proceed to the next section
-    
