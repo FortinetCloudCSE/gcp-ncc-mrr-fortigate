@@ -88,7 +88,7 @@ This chapter was dedicated to integrating our separate application VPCs into the
   <p style="color: #666; margin-bottom: 30px;">
     Launch the Capture The Flag challenge in a new window to test your skills!
   </p>
-  <button onclick="window.open('https://ctf-container-app-726589262642.us-central1.run.app/', '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes')" 
+  <button onclick="window.open('https://ctf-cookies-o32xpkqaca-uc.a.run.app/', '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes')" 
           style="padding: 15px 30px; font-size: 18px; font-weight: bold; color: white; background-color: #007cba; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s ease;">
     🚀 Launch CTF Challenge
   </button>
